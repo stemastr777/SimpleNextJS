@@ -18,6 +18,11 @@ resource "aws_ecr_lifecycle_policy" "name" {
   policy     = templatefile(var.lifecycle_policy, {})
 }
 
+resource "aws_ecr_repository_policy" "ecr_policy_attachment" {
+  repository = aws_ecr_repository.repository.name
+  policy     = data.aws_iam_policy_document.ecr_repo_policy.json
+}
+
 resource "aws_ecr_registry_scanning_configuration" "scan_configuration" {
   scan_type = "ENHANCED"
 
