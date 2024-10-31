@@ -13,7 +13,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of the application code
-COPY --exclude=node_modules ./nextjs-blog .
+COPY ./nextjs-blog .
 
 # Build the Next.js app
 RUN npm run build
