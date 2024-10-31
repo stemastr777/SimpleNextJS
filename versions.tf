@@ -12,5 +12,6 @@ terraform {
     bucket = "nextjs-tf-state"
     key    = "/"
     region = "us-west-1"
+    dynamodb_table = "terraform-lock"
   }
 }
