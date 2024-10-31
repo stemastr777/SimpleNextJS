@@ -41,7 +41,7 @@ on:
         type: string
       backend_dynamodb_table:
         description: DynamoDB table for State lock
-        default: "terraform-backend-ddb"
+        default: "terraform-lock"
         type: string
 
 # concurrency required to avoid terraform lock contention during ECR provisioning

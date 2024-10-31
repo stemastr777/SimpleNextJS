@@ -4,13 +4,13 @@ data "aws_caller_identity" "current" {}
 resource "aws_ecr_repository" "repository" {
   name                 = var.repository_name
   image_tag_mutability = "IMMUTABLE"
-  image_scanning_configuration {
-    scan_on_push = true
-  }
+  # image_scanning_configuration {
+  #   scan_on_push = true
+  # }
 
-  encryption_configuration {
-    encryption_type = "KMS"
-  }
+  # encryption_configuration {
+  #   encryption_type = "KMS"
+  # }
 }
 
 resource "aws_ecr_lifecycle_policy" "name" {
@@ -23,14 +23,14 @@ resource "aws_ecr_repository_policy" "ecr_policy_attachment" {
   policy     = data.aws_iam_policy_document.ecr_repo_policy.json
 }
 
-resource "aws_ecr_registry_scanning_configuration" "scan_configuration" {
-  scan_type = "ENHANCED"
+# resource "aws_ecr_registry_scanning_configuration" "scan_configuration" {
+#   scan_type = "ENHANCED"
 
-  rule {
-    scan_frequency = "CONTINUOUS_SCAN"
-    repository_filter {
-      filter      = "*"
-      filter_type = "WILDCARD"
-    }
-  }
-}
+#   rule {
+#     scan_frequency = "CONTINUOUS_SCAN"
+#     repository_filter {
+#       filter      = "*"
+#       filter_type = "WILDCARD"
+#     }
+#   }
+# }
