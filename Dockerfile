@@ -7,7 +7,7 @@ FROM node:23-alpine
 WORKDIR /app
 
 # Copy the package.json  files
-COPY package.json .
+COPY /nextjs-blog/package*.json .
 
 RUN pwd
 
