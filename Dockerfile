@@ -6,8 +6,13 @@ FROM node:23-alpine
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files
-COPY package*.json ./
+# Copy the package.json  files
+COPY package.json .
+
+RUN pwd
+
+# List the contents of the directory for debugging
+RUN ls -la
 
 # Install dependencies
 RUN npm install
