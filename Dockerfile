@@ -7,9 +7,7 @@ FROM node:23-alpine
 WORKDIR /app
 
 # Copy the package.json  files
-COPY nextjs-blog/package*.json ./
-
-RUN pwd
+COPY ./nextjs-blog/package*.json ./
 
 # List the contents of the directory for debugging
 RUN ls -la
@@ -18,7 +16,7 @@ RUN ls -la
 RUN npm install
 
 # Copy the rest of the application code
-COPY ./nextjs-blog .
+COPY ./nextjs-blog ./
 
 # Build the Next.js app
 RUN npm run build
